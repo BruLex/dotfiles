@@ -1,6 +1,19 @@
 {
+  "$schema": "https://raw.githubusercontent.com/angular/angular-cli/master/packages/angular/cli/lib/config/workspace-schema.json",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush"
+    },
+    "@schematics/angular:application": {
+      "prefix": "blx",
+      "minimal": true,
+      "style": "scss",
+      "strict": true
+    }
   },
   "version": 1
 }
