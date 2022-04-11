@@ -1,0 +1,124 @@
+format = """$all"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+disabled = true
+show_always = true
+style_user = "bg:#9A348E"
+style_root = "bg:#9A348E"
+format = '[$user ]($style)'
+
+[directory]
+read_only = " "
+style = "bg:#DA627D"
+format = "[](#DA627D)[ $path ]($style)[](#DA627D)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[character]
+success_symbol = "[](inverted #BD93F9)[  ](fg:#F8F8F2 bg:#BD93F9)[](#BD93F9)"
+error_symbol = "[](inverted #FF5555)[  ](fg:#F8F8F2 bg:#FF5555)[](#FF5555)"
+vicmd_symbol = "[❮](bold green)"
+
+[cmd_duration]
+min_time = 500
+format = "[](inverted #FCA17D)[took ](bg:#FCA17D)[$duration](fg:#FFFFA5 bg:#FCA17D)[](#FCA17D)"
+
+
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D"
+format = '[](inverted #FCA17D)[[ $symbol $branch ](bg:#FCA17D)]($style)'
+
+[git_metrics]
+disabled = false
+added_style = "bold #13B83C bg:#FCA17D"
+deleted_style ="bold #FF0000 bg:#FCA17D"
+only_nonzero_diffs = false
+format = '[\(](bg:#FCA17D)[+$added]($added_style)[/](bg:#FCA17D)[-$deleted]($deleted_style)[\)](bg:#FCA17D)[](#FCA17D)'
+
+[git_status]
+disabled = true
+
+[nodejs]
+symbol = ""
+style = "bg:#13B83C"
+format = '[](inverted #13B83C)[[ $symbol ($version) ](bg:#13B83C)]($style)[](#13B83C)'
+
+[rust]
+symbol = ""
+style = "bg:#FF6E6E"
+format = '[[ $symbol ($version) ](bg:#FF6E6E)]($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#33658A"
+format = '[](inverted #33658A)[[ $time ](bg:#33658A)]($style)[](#33658A)'
+
+[line_break]
+disabled = true
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
