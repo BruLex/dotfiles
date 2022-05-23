@@ -13,17 +13,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 NODE_VERSION=14
 
 info() {
-    printf '%s\n' "${BOLD}${GREY}>${GREEN} $*${NO_COLOR}"
-}
-
-sp="/-\|"
-sc=0
-spin() {
-    printf "\b${sp:sc++:1}"
-    ((sc == ${#sp})) && sc=0
-}
-endspin() {
-    printf "\r%s\n" "$@"
+    printf "${BOLD}${GREY}>${GREEN} $*${NO_COLOR}\n"
 }
 
 # Install nvm
@@ -67,7 +57,18 @@ info "Instaling direnv..."
 curl -sfL https://direnv.net/install.sh | bash &>/dev/null
 
 info "Installing ruby..."
-sudo apt-get install -y ruby-full >/dev/null
+cd $HOME
+sudo apt-get update -y --quiet
+sudo apt-get install -y --quiet git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
+
+rm -rf ~/.rbenv ~/.rbenv/plugins/ruby-build
+
+git clone --quiet https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone --quiet https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+source ~/.bashrc
+
+rbenv install 3.1.2
+rbenv global 3.1.2
 
 info "Installing colorls..."
-gem install colorls >/dev/null
+gem install --quiet colorls
