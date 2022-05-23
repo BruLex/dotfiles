@@ -72,3 +72,8 @@ rbenv global 3.1.2
 
 info "Installing colorls..."
 gem install --quiet colorls
+
+if [ -f "/etc/wsl.conf" ] && [ -z "$(awk -F "=" '/generateResolvConf/ {print $0}' /etc/wsl.conf)" ]; then
+    info "WSL found, need to update /etc/wsl.conf with the following configuretion:${GREY}\n[network]\n  generateResolvConf = false"
+    sudo sh -c 'printf "\n[network]\n  generateResolvConf = false" >> /etc/wsl.conf'
+fi
